@@ -52,8 +52,8 @@ public class Main {
         System.out.println("Начинаем конструировать обед...");
 
         System.out.println("Введите количество наборов, которые нужно сгенерировать:");
-        int numberOfCombos = scanner.nextInt();
-        scanner.nextLine();
+
+        int numberOfCombos = enterNumber();
 
         System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter). Для завершения ввода введите пустую строку");
         String nextItem = " ";
@@ -74,6 +74,14 @@ public class Main {
         }
 
         // сгенерируйте комбинации блюд и выведите на экран
-
+    }
+    public static int enterNumber() {
+        while (!scanner.hasNextInt()) {
+            System.out.println("Некорректный ввод!");
+            scanner.next();
+        }
+        int numberOfCombos = scanner.nextInt();
+        scanner.nextLine();
+        return numberOfCombos;
     }
 }
